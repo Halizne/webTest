@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans [
+        <!ELEMENT beans (bean|tx:advice)*>
+        <!ATTLIST beans
+                xmlns CDATA #REQUIRED
+                xmlns:context CDATA #REQUIRED
+                xmlns:p CDATA #REQUIRED
+                xmlns:aop CDATA #REQUIRED
+                xmlns:tx CDATA #REQUIRED
+                xmlns:xsi CDATA #REQUIRED
+                xsi:schemaLocation CDATA #REQUIRED>
+        <!ELEMENT bean (property)*>
+        <!ATTLIST bean
+                id CDATA #REQUIRED
+                class CDATA #REQUIRED>
+        <!ELEMENT property (#PCDATA)>
+        <!ATTLIST property
+                name CDATA #REQUIRED
+                ref CDATA #REQUIRED>
+        <!ELEMENT tx:advice (tx:attributes)*>
+        <!ATTLIST tx:advice
+                id CDATA #REQUIRED
+                transaction-manager CDATA #REQUIRED>
+        <!ELEMENT tx:attributes (tx:method)*>
+        <!ELEMENT tx:method (#PCDATA)>
+        <!ATTLIST tx:method
+                name CDATA #REQUIRED
+                propagation CDATA #REQUIRED>
+        ]>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+
+    <!--事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--通知 -->
+
+    <tx:advice id="txAdvuce" transaction-manager="transactionManager">
+
+        <tx:attributes>
+            <!--传播行为-->
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="create*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="query*" propagation="SUPPORTS" read-only="true"/>
+
+        </tx:attributes>
+
+    </tx:advice>
+
+    <!--切面-->
+    <aop:config>
+        <aop:advisor advice-ref="txAdvuce" pointcut="execution(* com.css.crm.service.*.*(..))"/>
+    </aop:config>
+
 
 </beans>
