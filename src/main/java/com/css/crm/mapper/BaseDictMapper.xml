@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.css.crm.mapper.BaseDictMapper">
+
+
+    <!--根据类别代码查询数据-->
+    <select id="queryBaseDictByDictTypeCode" parameterType="String"
+
+    resultType="com.css.crm.pojo.BaseDict">
+
+      SELECT dict_id AS dictId, dict_type_code AS dictTypeCode, dict_type_name AS dictTypeName , dict_item_name AS dictItemName ,dict_item_code AS dictItemCode ,dict_sort AS dictSort ,dict_enable AS dictEnable, dict_memo AS dictMemo FROM base_dict;
+      WHERE dict_type_code = #{dictTypeCode};
+
+    </select>
+
+
+
+
+</mapper>

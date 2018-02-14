@@ -13,6 +13,9 @@
     <!--配置注解驱动-->
     <mvc:annotation-driven/>
 
+    <!--解决静态资源无法被springMVC处理的问题-->
+    <mvc:default-servlet-handler/>
+
     <!--配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
