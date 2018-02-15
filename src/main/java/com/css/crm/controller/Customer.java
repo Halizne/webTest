@@ -1,6 +1,7 @@
 package com.css.crm.controller;
 
 import com.css.crm.pojo.BaseDict;
+import com.css.crm.pojo.QueryVO;
 import com.css.crm.service.BaseDictService;
 import com.css.crm.service.CustomerService;
 import com.css.crm.utils.Page;
@@ -30,9 +31,9 @@ public class Customer {
      * @return
      */
     @RequestMapping("list")
-    public String queryCustomerList(Model model, Integer page) {
+    public String queryCustomerList(Model model, Integer page , QueryVO queryVO) {
 
-        //todo  还是这个展示  实现条件查询；
+        //代码写的丑陋点就丑陋点吧； 能实现功能就行
 
         List<BaseDict> fromType = baseDictService.queryBaseDictByDictTypeCode("009");
 
@@ -59,7 +60,7 @@ public class Customer {
         }
         customerPage.setSize(10);
 
-        customerPage = customerService.queryCustomerPage(customerPage);
+        customerPage = customerService.queryCustomerPage(customerPage,queryVO);
 
         model.addAttribute("page", customerPage);
 

@@ -3,6 +3,8 @@ package com.css.crm.mapper;
 
 
 import com.css.crm.pojo.Customer;
+import com.css.crm.pojo.QueryVO;
+
 import java.util.List;
 
 /**
@@ -21,8 +23,9 @@ public interface CustomerMapper {
      * 查询总数
      *
      * @return
+     * @param queryVO
      */
-    public int queryCount();
+    public int queryCount(QueryVO queryVO);
 
 
     /**
@@ -30,9 +33,10 @@ public interface CustomerMapper {
      *
      * @param start
      * @param end
+     * @param queryVO
      * @return
      */
-    public List<Customer> queryCustomerByPage(int start , int end );
+    public List<Customer> queryCustomerByPage(int start, int end, QueryVO queryVO);
 
 
 

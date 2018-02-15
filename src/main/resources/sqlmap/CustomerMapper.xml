@@ -14,8 +14,23 @@
 
 
     <select id="queryCount" resultType="int">
-
-       SELECT COUNT(*) FROM customer;
+        <!--mybatis 动态sql-->
+       SELECT COUNT(*) FROM customer
+        <where>
+            <if test="custName != null and custName != ''">
+                and  cust_name LIKE '%${custName}%';
+            </if>
+            <if test="custSource != null and custSource != ''">
+                and cust_source = #{custSource}
+            </if>
+            <if test="custIndustry != null and custIndustry != ''">
+                and cust_industry = #{custIndustry}
+            </if>
+            <if test="custLevel != null and custLevel != ''">
+                and cust_level = #{custLevel}
+            </if>
+        </where>
+        ;
 
     </select>
 
@@ -25,9 +40,22 @@
 
     SELECT  cust_id AS custId , cust_name AS custName , cust_user_id AS custUserId , cust_create_id AS custCreateId , cust_source AS custSource  ,
     cust_industry AS custIndustry , cust_level AS custLevel ,cust_linkman AS custLinkman , cust_phone AS  custPhone ,cust_mobile AS custMobile,
-    cust_zipcode AS custZipcode ,cust_address AS custAddress , cust_createtime AS custCreatetime FROM customer LIMIT #{0} , #{1};
-
-
+    cust_zipcode AS custZipcode ,cust_address AS custAddress , cust_createtime AS custCreatetime FROM customer
+        <where>
+            <if test="custName != null and custName != ''">
+                and   cust_name LIKE '%${custName}%';
+            </if>
+            <if test="custSource != null and custSource != ''">
+                and cust_source = #{custSource}
+            </if>
+            <if test="custIndustry != null and custIndustry != ''">
+                and cust_industry = #{custIndustry}
+            </if>
+            <if test="custLevel != null and custLevel != ''">
+                and cust_level = #{custLevel}
+            </if>
+        </where>
+    LIMIT #{0} , #{1};
     </select>
 
 
