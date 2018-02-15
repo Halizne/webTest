@@ -3,4 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <!--通过resource方法一次加载一个映射文件 -->
+    <mappers>
+        <mapper resource="sqlmap/BaseDictMapper.xml"/>
+    </mappers>
+
 </configuration>
+
+
+

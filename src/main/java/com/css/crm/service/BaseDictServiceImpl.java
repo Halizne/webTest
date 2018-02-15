@@ -15,7 +15,7 @@ public class BaseDictServiceImpl implements BaseDictService {
 
     //todo  这到底错没错啊 ？ 什么鬼啊 ？
     @Autowired
-    private BaseDictMapper baseDictMapper;
+    private BaseDictMapper baseDictMapper ;
 
     @Override
     public List<BaseDict> queryBaseDictByDictTypeCode(String dictTypeCode) {

@@ -220,7 +220,7 @@
 							<select	class="form-control" id="customerFrom" placeholder="客户来源" name="custSource">
 								<option value="">--请选择--</option>
 								<c:forEach items="${fromType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == custSource}"> selected</c:if>>${item.dict_item_name }</option>
+									<option value="${item.dictId}"<c:if test="${item.dictId == custSource}"> selected</c:if>>${item.dictItemName }</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -229,7 +229,7 @@
 							<select	class="form-control" id="custIndustry"  name="custIndustry">
 								<option value="">--请选择--</option>
 								<c:forEach items="${industryType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == custIndustry}"> selected</c:if>>${item.dict_item_name }</option>
+									<option value="${item.dictId}"<c:if test="${item.dictId == custIndustry}"> selected</c:if>>${item.dictItemName }</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -238,7 +238,7 @@
 							<select	class="form-control" id="custLevel" name="custLevel">
 								<option value="">--请选择--</option>
 								<c:forEach items="${levelType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == custLevel}"> selected</c:if>>${item.dict_item_name }</option>
+									<option value="${item.dictId}"<c:if test="${item.dictId == custLevel}"> selected</c:if>>${item.dictItemName }</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -321,7 +321,7 @@
 								<select	class="form-control" id="edit_customerFrom" placeholder="客户来源" name="cust_source">
 									<option value="">--请选择--</option>
 									<c:forEach items="${fromType}" var="item">
-										<option value="${item.dict_id}"<c:if test="${item.dict_id == custSource}"> selected</c:if>>${item.dict_item_name }</option>
+										<option value="${item.dictId}"<c:if test="${item.dictId == custSource}"> selected</c:if>>${item.dictItemName }</option>
 									</c:forEach>
 								</select>
 							</div>
@@ -332,7 +332,7 @@
 								<select	class="form-control" id="edit_custIndustry"  name="cust_industry">
 									<option value="">--请选择--</option>
 									<c:forEach items="${industryType}" var="item">
-										<option value="${item.dict_id}"<c:if test="${item.dict_id == custIndustry}"> selected</c:if>>${item.dict_item_name }</option>
+										<option value="${item.dictId}"<c:if test="${item.dictId == custIndustry}"> selected</c:if>>${item.dictItemName }</option>
 									</c:forEach>
 								</select>
 							</div>
@@ -343,7 +343,7 @@
 								<select	class="form-control" id="edit_custLevel" name="cust_level">
 									<option value="">--请选择--</option>
 									<c:forEach items="${levelType}" var="item">
-										<option value="${item.dict_id}"<c:if test="${item.dict_id == custLevel}"> selected</c:if>>${item.dict_item_name }</option>
+										<option value="${item.dictId}"<c:if test="${item.dictId == custLevel}"> selected</c:if>>${item.dictItemName }</option>
 									</c:forEach>
 								</select>
 							</div>

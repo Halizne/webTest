@@ -17,10 +17,10 @@
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 
         <!--对象注入属性-->
-        <property name="driverClassName" value="{jdbc.driver}"/>
-        <property name="url" value="{jdbc.url}"/>
-        <property name="username" value="{jdbc.username}"/>
-        <property name="password" value="{jdbc.password}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
 
     </bean>
 
@@ -41,7 +41,7 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 
     <!-- 设置Mapper 扫描包 -->
-    <property name="basePackage" value="com.css.crm.mapper"></property>
+    <property name="basePackage" value="com.css.crm.mapper"/>
 
 
     </bean>

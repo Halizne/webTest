@@ -39,9 +39,14 @@ public class Customer {
 
         model.addAttribute("industryType", industryType);
 
+        model.addAttribute("levelType",levelType);
+
 
 
         //除了这个显示应该还有带分页的数据展示；
+
+
+
 
 
 
