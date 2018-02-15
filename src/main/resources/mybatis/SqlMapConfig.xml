@@ -6,6 +6,7 @@
     <!--通过resource方法一次加载一个映射文件 -->
     <mappers>
         <mapper resource="sqlmap/BaseDictMapper.xml"/>
+        <mapper resource="sqlmap/CustomerMapper.xml"/>
     </mappers>
 
 </configuration>

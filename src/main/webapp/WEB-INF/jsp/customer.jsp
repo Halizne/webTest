@@ -267,16 +267,16 @@
 							<tbody>
 								<c:forEach items="${page.rows}" var="row">
 									<tr>
-										<td>${row.cust_id}</td>
-										<td>${row.cust_name}</td>
-										<td>${row.cust_source}</td>
-										<td>${row.cust_industry}</td>
-										<td>${row.cust_level}</td>
-										<td>${row.cust_phone}</td>
-										<td>${row.cust_mobile}</td>
+										<td>${row.custId}</td>
+										<td>${row.custName}</td>
+										<td>${row.custSource}</td>
+										<td>${row.custIndustry}</td>
+										<td>${row.custLevel}</td>
+										<td>${row.custPhone}</td>
+										<td>${row.custMobile}</td>
 										<td>
-											<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${row.cust_id})">修改</a>
-											<a href="#" class="btn btn-danger btn-xs" onclick="deleteCustomer(${row.cust_id})">删除</a>
+											<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${row.custId})">修改</a>
+											<a href="#" class="btn btn-danger btn-xs" onclick="deleteCustomer(${row.custId})">删除</a>
 										</td>
 									</tr>
 								</c:forEach>
@@ -412,16 +412,16 @@
 				url:"<%=basePath%>customer/edit.action",
 				data:{"id":id},
 				success:function(data) {
-					$("#edit_cust_id").val(data.cust_id);
-					$("#edit_customerName").val(data.cust_name);
-					$("#edit_customerFrom").val(data.cust_source)
-					$("#edit_custIndustry").val(data.cust_industry)
-					$("#edit_custLevel").val(data.cust_level)
-					$("#edit_linkMan").val(data.cust_linkman);
-					$("#edit_phone").val(data.cust_phone);
-					$("#edit_mobile").val(data.cust_mobile);
-					$("#edit_zipcode").val(data.cust_zipcode);
-					$("#edit_address").val(data.cust_address);
+					$("#edit_cust_id").val(data.custId);
+					$("#edit_customerName").val(data.custName);
+					$("#edit_customerFrom").val(data.custSource);
+					$("#edit_custIndustry").val(data.custIndustry);
+					$("#edit_custLevel").val(data.custLevel);
+					$("#edit_linkMan").val(data.custLinkman);
+					$("#edit_phone").val(data.custPhone);
+					$("#edit_mobile").val(data.custMobile);
+					$("#edit_zipcode").val(data.custZipcode);
+					$("#edit_address").val(data.custAddress);
 					
 				}
 			});
