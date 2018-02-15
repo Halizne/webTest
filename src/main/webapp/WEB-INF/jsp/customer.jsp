@@ -308,17 +308,17 @@
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" id="edit_customer_form">
-						<input type="hidden" id="edit_cust_id" name="cust_id"/>
+						<input type="hidden" id="edit_cust_id" name="custId"/>
 						<div class="form-group">
 							<label for="edit_customerName" class="col-sm-2 control-label">客户名称</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_customerName" placeholder="客户名称" name="cust_name">
+								<input type="text" class="form-control" id="edit_customerName" placeholder="客户名称" name="custName">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="edit_customerFrom" style="float:left;padding:7px 15px 0 27px;">客户来源</label> 
 							<div class="col-sm-10">
-								<select	class="form-control" id="edit_customerFrom" placeholder="客户来源" name="cust_source">
+								<select	class="form-control" id="edit_customerFrom" placeholder="客户来源" name="custSource">
 									<option value="">--请选择--</option>
 									<c:forEach items="${fromType}" var="item">
 										<option value="${item.dictId}"<c:if test="${item.dictId == custSource}"> selected</c:if>>${item.dictItemName }</option>
@@ -329,7 +329,7 @@
 						<div class="form-group">
 							<label for="edit_custIndustry" style="float:left;padding:7px 15px 0 27px;">所属行业</label>
 							<div class="col-sm-10"> 
-								<select	class="form-control" id="edit_custIndustry"  name="cust_industry">
+								<select	class="form-control" id="edit_custIndustry"  name="custIndustry">
 									<option value="">--请选择--</option>
 									<c:forEach items="${industryType}" var="item">
 										<option value="${item.dictId}"<c:if test="${item.dictId == custIndustry}"> selected</c:if>>${item.dictItemName }</option>
@@ -340,7 +340,7 @@
 						<div class="form-group">
 							<label for="edit_custLevel" style="float:left;padding:7px 15px 0 27px;">客户级别</label>
 							<div class="col-sm-10">
-								<select	class="form-control" id="edit_custLevel" name="cust_level">
+								<select	class="form-control" id="edit_custLevel" name="custLevel">
 									<option value="">--请选择--</option>
 									<c:forEach items="${levelType}" var="item">
 										<option value="${item.dictId}"<c:if test="${item.dictId == custLevel}"> selected</c:if>>${item.dictItemName }</option>
@@ -351,31 +351,31 @@
 						<div class="form-group">
 							<label for="edit_linkMan" class="col-sm-2 control-label">联系人</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_linkMan" placeholder="联系人" name="cust_linkman">
+								<input type="text" class="form-control" id="edit_linkMan" placeholder="联系人" name="custLinkman">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="edit_phone" class="col-sm-2 control-label">固定电话</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_phone" placeholder="固定电话" name="cust_phone">
+								<input type="text" class="form-control" id="edit_phone" placeholder="固定电话" name="custPhone">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="edit_mobile" class="col-sm-2 control-label">移动电话</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_mobile" placeholder="移动电话" name="cust_mobile">
+								<input type="text" class="form-control" id="edit_mobile" placeholder="移动电话" name="custMobile">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="edit_zipcode" class="col-sm-2 control-label">邮政编码</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_zipcode" placeholder="邮政编码" name="cust_zipcode">
+								<input type="text" class="form-control" id="edit_zipcode" placeholder="邮政编码" name="custZipcode">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="edit_address" class="col-sm-2 control-label">联系地址</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_address" placeholder="联系地址" name="cust_address">
+								<input type="text" class="form-control" id="edit_address" placeholder="联系地址" name="custAddress">
 							</div>
 						</div>
 					</form>

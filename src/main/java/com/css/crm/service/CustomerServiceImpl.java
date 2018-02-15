@@ -31,8 +31,17 @@ public class CustomerServiceImpl implements CustomerService {
         int count = customerMapper.queryCount(queryVO);
         customerPage.setTotal(count);
 
-        List<Customer> rows = customerMapper.queryCustomerByPage((customerPage.getPage() - 1) * customerPage.getSize(), customerPage.getSize(),queryVO);
+        queryVO.setStart((customerPage.getPage() - 1) * customerPage.getSize());
+        queryVO.setEnd(customerPage.getSize());
+
+        List<Customer> rows = customerMapper.queryCustomerByPage(queryVO);
         customerPage.setRows(rows);
         return customerPage;
+    }
+
+    @Override
+    public Customer queryCustomerById(String id) {
+        Customer customer = customerMapper.queryCustomerById(Integer.valueOf(id));
+        return customer;
     }
 }

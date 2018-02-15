@@ -9,6 +9,12 @@ public class QueryVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private int start ;
+
+    private int end ;
+
+    private String custName;
+
     private String  custSource;
 
     private String custIndustry;
@@ -37,5 +43,29 @@ public class QueryVO implements Serializable {
 
     public void setCustLevel(String custLevel) {
         this.custLevel = custLevel;
+    }
+
+    public String getCustName() {
+        return custName;
+    }
+
+    public void setCustName(String custName) {
+        this.custName = custName;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
     }
 }

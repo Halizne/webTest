@@ -4,6 +4,7 @@ package com.css.crm.mapper;
 
 import com.css.crm.pojo.Customer;
 import com.css.crm.pojo.QueryVO;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -31,13 +32,17 @@ public interface CustomerMapper {
     /**
      *  分页查询数据
      *
-     * @param start
-     * @param end
      * @param queryVO
      * @return
      */
-    public List<Customer> queryCustomerByPage(int start, int end, QueryVO queryVO);
+    public List<Customer> queryCustomerByPage(QueryVO queryVO);
 
-
-
+    /**
+     *
+     *  根据id查询
+     *
+     * @param id
+     * @return
+     */
+    Customer queryCustomerById(@Param("id") int id);
 }

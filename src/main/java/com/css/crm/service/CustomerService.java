@@ -14,4 +14,6 @@ public interface CustomerService {
     List<Customer> queryAllCustomer();
 
     Page<Customer> queryCustomerPage(Page<Customer> customerPage, QueryVO queryVO);
+
+    Customer queryCustomerById(String id);
 }

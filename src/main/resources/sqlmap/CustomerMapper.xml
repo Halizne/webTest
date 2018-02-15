@@ -13,12 +13,12 @@
     </select>
 
 
-    <select id="queryCount" resultType="int">
-        <!--mybatis 动态sql-->
+    <select id="queryCount" parameterType="com.css.crm.pojo.QueryVO" resultType="int">
+        <!--mybatis 动态sql  mybatis的传参该怎么写-->
        SELECT COUNT(*) FROM customer
         <where>
             <if test="custName != null and custName != ''">
-                and  cust_name LIKE '%${custName}%';
+                and  cust_name LIKE #{custName}
             </if>
             <if test="custSource != null and custSource != ''">
                 and cust_source = #{custSource}
@@ -35,15 +35,15 @@
     </select>
 
 
-    <select id="queryCustomerByPage"  parameterType="int"  resultType="com.css.crm.pojo.Customer">
+    <select id="queryCustomerByPage"  parameterType="com.css.crm.pojo.QueryVO" resultType="com.css.crm.pojo.Customer">
 
 
-    SELECT  cust_id AS custId , cust_name AS custName , cust_user_id AS custUserId , cust_create_id AS custCreateId , cust_source AS custSource  ,
+    SELECT  cust_id AS custId , cust_name AS custName , cust_user_id AS custUserId , cust_create_id AS custCreateId , cust_source AS custSource,
     cust_industry AS custIndustry , cust_level AS custLevel ,cust_linkman AS custLinkman , cust_phone AS  custPhone ,cust_mobile AS custMobile,
     cust_zipcode AS custZipcode ,cust_address AS custAddress , cust_createtime AS custCreatetime FROM customer
-        <where>
+    where 1 = 1
             <if test="custName != null and custName != ''">
-                and   cust_name LIKE '%${custName}%';
+                and   cust_name LIKE #{custName}
             </if>
             <if test="custSource != null and custSource != ''">
                 and cust_source = #{custSource}
@@ -54,9 +54,18 @@
             <if test="custLevel != null and custLevel != ''">
                 and cust_level = #{custLevel}
             </if>
-        </where>
-    LIMIT #{0} , #{1};
+            LIMIT #{start} , #{end};
+
+
     </select>
 
+
+    <select id="queryCustomerById" parameterType="int" resultType="com.css.crm.pojo.Customer">
+
+        SELECT  cust_id AS custId , cust_name AS custName , cust_user_id AS custUserId , cust_create_id AS custCreateId , cust_source AS custSource,
+    cust_industry AS custIndustry , cust_level AS custLevel ,cust_linkman AS custLinkman , cust_phone AS  custPhone ,cust_mobile AS custMobile,
+    cust_zipcode AS custZipcode ,cust_address AS custAddress , cust_createtime AS custCreatetime FROM customer WHERE cust_id = #{id};
+
+    </select>
 
 </mapper>
