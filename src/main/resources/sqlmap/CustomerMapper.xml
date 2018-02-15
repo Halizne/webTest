@@ -37,25 +37,28 @@
 
     <select id="queryCustomerByPage"  parameterType="com.css.crm.pojo.QueryVO" resultType="com.css.crm.pojo.Customer">
 
-
-    SELECT  cust_id AS custId , cust_name AS custName , cust_user_id AS custUserId , cust_create_id AS custCreateId , cust_source AS custSource,
-    cust_industry AS custIndustry , cust_level AS custLevel ,cust_linkman AS custLinkman , cust_phone AS  custPhone ,cust_mobile AS custMobile,
-    cust_zipcode AS custZipcode ,cust_address AS custAddress , cust_createtime AS custCreatetime FROM customer
-    where 1 = 1
-            <if test="custName != null and custName != ''">
-                and   cust_name LIKE #{custName}
-            </if>
-            <if test="custSource != null and custSource != ''">
-                and cust_source = #{custSource}
-            </if>
-            <if test="custIndustry != null and custIndustry != ''">
-                and cust_industry = #{custIndustry}
-            </if>
-            <if test="custLevel != null and custLevel != ''">
-                and cust_level = #{custLevel}
-            </if>
-            LIMIT #{start} , #{end};
-
+        SELECT  a.dict_item_name  custSource, b.dict_item_name  custIndustry,c.dict_item_name custLevel ,
+        d.cust_id custId , d.cust_name custName, d.cust_user_id custUserId , d.cust_create_id custCreateId ,
+        d.cust_linkman custLinkman , d.cust_phone custPhone , d.cust_mobile custMobile , d.cust_zipcode ,
+        d.cust_address custAddress ,d.cust_createtime custCreatetime FROM
+        ( SELECT * FROM customer
+        where 1 = 1
+                <if test="custName != null and custName != ''">
+                    and   cust_name LIKE  '%' #{custName} '%'
+                </if>
+                <if test="custSource != null and custSource != ''">
+                    and cust_source = #{custSource}
+                </if>
+                <if test="custIndustry != null and custIndustry != ''">
+                    and cust_industry = #{custIndustry}
+                </if>
+                <if test="custLevel != null and custLevel != ''">
+                    and cust_level = #{custLevel}
+                </if>
+                LIMIT #{start} , #{end} ) AS d
+        LEFT JOIN  base_dict AS a ON d.cust_source =a.dict_id
+        LEFT JOIN  base_dict AS b ON d.cust_industry = b.dict_id
+        LEFT JOIN base_dict AS c ON d.cust_level = c.dict_id
 
     </select>
 

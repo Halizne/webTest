@@ -6,12 +6,14 @@ import com.css.crm.pojo.QueryVO;
 import com.css.crm.service.BaseDictService;
 import com.css.crm.service.CustomerService;
 import com.css.crm.utils.Page;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -37,8 +39,14 @@ public class CustomerController {
 
         System.out.println(queryVO.getCustName());
 
-        //todo 页面传过来的是乱码；模糊搜索的功能实现；
-
+        if(StringUtils.isNotBlank(queryVO.getCustName())) {
+            try {
+                queryVO.setCustName(new String(queryVO.getCustName().getBytes("ISO8859-1"), "utf-8"));
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("转码异常");
+            }
+        }
+        System.out.println(queryVO.getCustName());
 
 
         List<BaseDict> fromType = baseDictService.queryBaseDictByDictTypeCode("009");
