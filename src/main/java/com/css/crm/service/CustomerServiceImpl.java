@@ -44,4 +44,11 @@ public class CustomerServiceImpl implements CustomerService {
         Customer customer = customerMapper.queryCustomerById(Integer.valueOf(id));
         return customer;
     }
+
+    @Override
+    public Boolean deleteCustomerById(String id) {
+
+        int i = customerMapper.deleteCustomerById(Integer.valueOf(id));
+        return i > 0;
+    }
 }

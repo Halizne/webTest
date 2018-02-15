@@ -45,4 +45,13 @@ public interface CustomerMapper {
      * @return
      */
     Customer queryCustomerById(@Param("id") int id);
+
+
+    /**
+     * 根据id删除
+     *
+     * @param id
+     * @return
+     */
+    int deleteCustomerById(@Param("id") int id );
 }

@@ -16,4 +16,6 @@ public interface CustomerService {
     Page<Customer> queryCustomerPage(Page<Customer> customerPage, QueryVO queryVO);
 
     Customer queryCustomerById(String id);
+
+    Boolean deleteCustomerById(String id);
 }

@@ -75,10 +75,19 @@ public class CustomerController {
 
     @RequestMapping("edit")
     @ResponseBody
-    public Customer  queryCustomerById(Model model , String id){
+    public Customer  queryCustomerById( String id){
 
         Customer customer = customerService.queryCustomerById(id);
         return customer;
+
+    }
+
+    @RequestMapping("delete")
+    @ResponseBody
+    public boolean deleteCustomerById( String id){
+
+      Boolean flag =  customerService.deleteCustomerById(id);
+      return flag ;
 
     }
 

@@ -68,4 +68,8 @@
 
     </select>
 
+    <delete id="deleteCustomerById" parameterType="int" >
+        DELETE  FROM customer WHERE cust_id = #{id}
+    </delete>
+
 </mapper>
