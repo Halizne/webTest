@@ -1,11 +1,12 @@
 package com.css.crm.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by 46597 on 2018/2/15.
  */
-public class Customer {
+public class Customer implements Serializable{
 
     private long custId;
     private String custName;
