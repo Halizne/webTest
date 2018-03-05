@@ -46,7 +46,7 @@ public class CustomerController {
                 throw new RuntimeException("转码异常");
             }
         }
-        System.out.println(queryVO.getCustName());
+       // System.out.println(queryVO.getCustName());
 
 
         List<BaseDict> fromType = baseDictService.queryBaseDictByDictTypeCode("009");
